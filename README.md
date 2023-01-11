@@ -22,3 +22,26 @@ typescript 설정에서 jsxImportSource를 `@emotion/react`로 설정해줘야�
 
 - https://github.com/ben-rogerson/babel-plugin-twin/issues/9#issuecomment-1318545946
 - https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react
+
+
+## TIP
+
+스크립트에서 css를 import해올때 build되는 결과물에 css로 나오게된다. 사용하는 특성상 css로 분리하 않아야하는 곳에 사용하면 매우 좋습니다.
+
+```js
+# vite.config.[ts,js]
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  build: {
+    minify: false,
+    cssCodeSplit: true,
+    rollupOptions: {
+      plugins: [
+        cssInjectedByJsPlugin(),
+      ]
+    }
+  },
+});
+```
