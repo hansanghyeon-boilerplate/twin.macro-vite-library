@@ -24,4 +24,22 @@ export default defineConfig({
   define: {
     'process.env': {},
   },
+  build: {
+    rollupOptions: {
+      plugins: [
+        // window객체에서 vite로 해쉬된 전역변수 전역함수 코어함수에 접근할 수없도록 IIEF 설정 추가하는 방법
+        {
+          name: 'wrap-in-iife',
+          generateBundle(outputOptions, bundle) {
+            Object.keys(bundle).forEach((fileName) => {
+              const file = bundle[fileName]
+              if (fileName.slice(-3) === '.js' && 'code' in file) {
+                file.code = `(() => {\n${file.code}})()`
+              }
+            })
+          }
+        },
+      ]
+    }
+  }
 })
