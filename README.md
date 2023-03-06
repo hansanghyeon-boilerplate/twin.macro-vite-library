@@ -1,4 +1,4 @@
-[![Stackblitz](https://img.shields.io/badge/Stackblitz-fff?style=for-the-badge&logo=Stackblitz&logoColor=1389FD)](https://stackblitz.com/fork/github/hansanghyeon-boilerplate/twin.macro-vite)
+[![Stackblitz](https://img.shields.io/badge/Stackblitz-fff?style=for-the-badge&logo=Stackblitz&logoColor=1389FD)](https://stackblitz.com/fork/github/hansanghyeon-boilerplate/twin.macro-vite-library)
 
 
 vite에서 twin.macro를 사용하기 위해서는 `babel-plugin-twin` `babel-plugin-macros`가 필요하다.
